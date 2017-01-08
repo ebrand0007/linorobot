@@ -42,7 +42,11 @@ int main(int argc, char** argv){
   while(n.ok()){
     broadcaster.sendTransform(
       tf::StampedTransform(
-        tf::Transform(tf::Quaternion(0, 0, 0, 1), tf::Vector3(0.065, 0.0, 0.196)),
+        //lino default 
+        //tf::Transform(tf::Quaternion(0, 0, 0, 1), tf::Vector3(0.065, 0.0, 0.196)),
+        //jazzbot
+        //                                                        X,   Y, Z offsets
+        tf::Transform(tf::Quaternion(0, 0, 0, 1), tf::Vector3(0.381, 0.0, 0.343)),
         ros::Time::now(),"base_link", "laser"));
     r.sleep();
   }
