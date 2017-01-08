@@ -168,7 +168,7 @@ target_link_libraries(base_laser_tf ${catkin_LIBRARIES})
 
 ## Mark executables and/or libraries for installation
 #install(TARGETS linorobot linorobot_node 
-install(TARGETS  lino_base_node
+install(TARGETS  lino_base_node base_laser_tf
    ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
    LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
    RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
