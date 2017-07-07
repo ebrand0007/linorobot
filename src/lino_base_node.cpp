@@ -144,7 +144,7 @@ int main(int argc, char** argv){
 
     nav_msgs::Odometry odom;
     odom.header.stamp = current_time;
-    odom.header.frame_id = odom_topic;
+    odom.header.frame_id = odom_frame;
     //robot's position in x,y, and z
     odom.pose.pose.position.x = x_pos;
     odom.pose.pose.position.y = y_pos;
