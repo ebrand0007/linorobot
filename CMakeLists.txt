@@ -150,8 +150,6 @@ include_directories(
 add_executable(lino_base_node src/lino_base_node.cpp)
 target_link_libraries(lino_base_node ${catkin_LIBRARIES})
 
-add_executable(base_laser_tf src/base_laser_tf.cpp)
-target_link_libraries(base_laser_tf ${catkin_LIBRARIES})
 #############
 ## Install ##
 #############
@@ -168,7 +166,7 @@ target_link_libraries(base_laser_tf ${catkin_LIBRARIES})
 
 ## Mark executables and/or libraries for installation
 #install(TARGETS linorobot linorobot_node 
-install(TARGETS  lino_base_node base_laser_tf
+install(TARGETS  lino_base_node 
    ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
    LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
    RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
