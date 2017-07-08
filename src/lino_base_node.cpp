@@ -179,6 +179,7 @@ int main(int argc, char** argv){
     odom.twist.twist.angular.z = g_imu_z;
 
     //TODO: include covariance matrix here
+    //See: https://github.com/chicagoedt/revo_robot/commit/620f3f61ea8ac832e2040fb4f4e5583a15e23e29
 
     odom_pub.publish(odom);
 
