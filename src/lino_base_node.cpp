@@ -99,10 +99,10 @@ int main(int argc, char** argv){
   std::string odom_frame;
   std::string imu_topic;
   std::string vel_topic;
-  n.param<std::string>("baselink_frame", baselink_frame, "base_link");
-  n.param<std::string>("odom_frame", odom_frame, "odom");
-  n.param<std::string>("imu_topic", imu_topic, "imu/data");
-  n.param<std::string>("vel_topic", vel_topic, "raw_vel");
+  nh_private.param<std::string>("baselink_frame", baselink_frame, "base_link");
+  nh_private.param<std::string>("odom_frame", odom_frame, "odom");
+  nh_private.param<std::string>("imu_topic", imu_topic, "imu/data");
+  nh_private.param<std::string>("vel_topic", vel_topic, "raw_vel");
 
   //ros::Subscriber sub = n.subscribe("raw_vel", 50, velCallback);
   //ros::Subscriber imu_sub = n.subscribe("imu/data", 50, IMUCallback);
