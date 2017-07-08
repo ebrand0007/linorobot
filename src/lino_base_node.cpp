@@ -31,6 +31,7 @@
 #include <ros/ros.h>
 #include <tf/transform_broadcaster.h>
 #include <nav_msgs/Odometry.h>
+#include <geometry_msgs/Vector3.h>
 #include <lino_msgs/Velocities.h>
 #include <sensor_msgs/Imu.h>
 #include <math.h>
@@ -46,7 +47,7 @@ ros::Time g_last_loop_time(0.0);
 ros::Time g_last_vel_time(0.0);
 ros::Time g_last_imu_time(0.0);
 
-void velCallback( const lino_msgs::Velocities& vel) {
+void velCallbackLino( const lino_msgs::Velocities& vel) {
   //callback every time the robot's linear velocity is received
   ros::Time current_time = ros::Time::now();
 
@@ -56,6 +57,20 @@ void velCallback( const lino_msgs::Velocities& vel) {
   g_vel_dt = (current_time - g_last_vel_time).toSec();
   g_last_vel_time = current_time;
 }
+
+void velCallback( const geometry_msgs::Vector3Stamped& vel) {
+  //callback every time the robot's linear velocity is received
+  ros::Time current_time = ros::Time::now();
+  g_vel_x= vel.vector.x;
+  g_vel_y = vel.vector.y;
+
+  g_vel_dt = (current_time - g_last_vel_time).toSec();
+  g_last_vel_time = current_time;
+
+
+}
+
+
 
 void IMUCallback( const sensor_msgs::Imu& imu){
   //callback every time the robot's angular velocity is received
