@@ -98,10 +98,12 @@ int main(int argc, char** argv){
   ros::NodeHandle nh_private_("~");
   
   //lauch params
+  int odom_publish_rate = 50;
   std::string baselink_frame;
   std::string odom_frame;
   std::string imu_topic;
   std::string vel_topic;
+  nh_private_.param("odom_publish_rate", odom_publish_rate, 50);
   nh_private_.param<std::string>("baselink_frame", baselink_frame, "base_link");
   nh_private_.param<std::string>("odom_frame", odom_frame, "odom");
   nh_private_.param<std::string>("imu_topic", imu_topic, "imu/data");
@@ -112,7 +114,7 @@ int main(int argc, char** argv){
   //ros::Publisher odom_pub = n.advertise<nav_msgs::Odometry>("odom", 50);
   ros::Subscriber sub = n.subscribe(vel_topic, 50, velCallback);
   ros::Subscriber imu_sub = n.subscribe(imu_topic, 50, IMUCallback);
-  ros::Publisher odom_pub = n.advertise<nav_msgs::Odometry>(odom_frame, 50);
+  ros::Publisher odom_pub = n.advertise<nav_msgs::Odometry>(odom_frame, odom_publish_rate);
   tf::TransformBroadcaster odom_broadcaster;
 
   double rate = 10.0;
