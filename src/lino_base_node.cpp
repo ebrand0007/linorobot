@@ -79,7 +79,7 @@ void IMUCallback( const sensor_msgs::Imu& imu){
   ros::Time current_time = ros::Time::now();
   //this block is to filter out imu noise
   //if(imu.angular_velocity.z > -0.03 && imu.angular_velocity.z < 0.03) //TODO: parameterize
-  if(imu.angular_velocity.z > -0.005 && imu.angular_velocity.z < 0
+  if(imu.angular_velocity.z > -0.005 && imu.angular_velocity.z < 0)
   {
     g_imu_z = 0.00;
   }
