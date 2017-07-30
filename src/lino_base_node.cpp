@@ -121,7 +121,7 @@ int main(int argc, char** argv){
   double x_pos = 0.0;
   double y_pos = 0.0;
   double theta = 0.0;
-  ros::Rate r(rate);
+  ros::Rate r(odom_publish_rate);
   while(n.ok()){
     ros::spinOnce();
     ros::Time current_time = ros::Time::now();
